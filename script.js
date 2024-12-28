@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
 
-        countdownElement.textContent = `До нового ${nextYear} года осталось: ${days} дня ${hours} часа ${minutes} м ${seconds} с`;
+        countdownElement.textContent = `До нового ${nextYear} года осталось: ${days} д ${hours} ч ${minutes} м ${seconds} с`;
 
         if (timeDifference <= 0) {
             countdownElement.textContent = `Солнышко, поздравляю тебя с Новым Годом! 😊❤️ 
