@@ -1,0 +1,112 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: hsl(195, 62%, 58%);
+    position: relative;
+}
+
+#cat {
+    width: 400px;
+    height: 400px;
+    cursor: pointer;
+}
+
+.snowflake {
+    position: absolute;
+    top: -10px;
+    color: white;
+    font-size: 1em;
+    user-select: none;
+    pointer-events: none;
+    animation: fall linear infinite;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: radial-gradient(circle, transparent, rgba(0, 0, 0, 0.3));
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100px) translateX(0) rotate(0deg);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(50vh) translateX(20px) rotate(180deg);
+    }
+    100% {
+        transform: translateY(100vh) translateX(-20px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.lights {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    animation: blink 5s infinite;
+}
+
+.lights span {
+    width: 20px;
+    height: 20px;
+    background: red;
+    border-radius: 50%;
+    animation: twinkle 1.5s infinite alternate;
+}
+
+.lights span:nth-child(2n) {
+    background: green;
+    border-radius: 0;
+    transform: rotate(45deg);
+}
+
+.lights span:nth-child(3n) {
+    background: yellow;
+    border-radius: 50%;
+}
+
+.lights span:nth-child(4n) {
+    background: blue;
+    border-radius: 0;
+    transform: rotate(45deg);
+}
+
+.lights span:nth-child(5n) {
+    background: purple;
+    border-radius: 50%;
+}
+
+@keyframes twinkle {
+    0% { opacity: 1; }
+    100% { opacity: 0.3; }
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+#countdown {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2em;
+    color: white;
+    text-align: center;
+}
